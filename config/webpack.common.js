@@ -64,7 +64,10 @@ module.exports = {
                         }
                     }
                 ]
-			},
+			},{
+                test: /\.(css|scss)$/,
+                loaders: ['to-string-loader', 'css-loader', 'sass-loader']
+            }
         ]
     },
 

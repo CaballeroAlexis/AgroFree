@@ -10,10 +10,11 @@ import { Settings } from './model/settings';
 import { TheDb } from './model/thedb';
 
 // Importing style.scss allows webpack to bundle stylesheet with application
-import '../assets/sass/style.scss';
+//import '../assets/sass/style.scss';
 
 @Component({
     selector: 'mycmp-app',
+    styles: [],
     templateUrl: 'app.component.html',
 })
 export class AppComponent {
