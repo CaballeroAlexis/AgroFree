@@ -1,0 +1,66 @@
+<div *ngIf="!insert_edit" class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver2 m-b-110">
+                <table data-vertable="ver2">
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="column100 column1" data-column="column1">Fecha de parto</th>
+                            <th class="column100 column2" data-column="column2"> Código madre</th>
+                            <th class="column100 column3" data-column="column3">N° nacidos vivos</th>
+                            <th class="column100 column4" data-column="column4">N° nacidos muertos</th>
+                            <th class="column100 column5" data-column="column5">N° nacidos totales</th>
+                            <th class="column100 column5" data-column="column6">Celda N°</th>
+                            <th class="column100 column5" data-column="column7">Observación</th>
+                            <th class="column100 column6" data-column="column8">Acción</th>
+
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div></div>
+                        <tr class="row100" *ngFor="let row of data_table">
+                            <td class="column100 column1" data-column="column1">{{row.fecha_parto}}</td>
+                            <td class="column100 column2" data-column="column2">{{row.codigo_madre}}</td>
+                            <td class="column100 column3" data-column="column3">{{row.n_nacidos_vivos}}</td>
+                            <td class="column100 column4" data-column="column4">{{row.num_nacidos_muertos}}</td>
+                            <td class="column100 column4" data-column="column5">{{row.num_nacidos_totales}}</td>
+                            <td class="column100 column4" data-column="column6">{{row.num_celda}}</td>
+                            <td class="column100 column5" data-column="column7">{{row.observacion}}</td>
+                            
+                            <td class="column100 column6" data-column="column8"> <button (click)="editData(row)">Editar</button> <button (click)="deleteData(row.id)">Eliminar</button></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn" (click)="change_insert_edit()">
+                            <span>
+                                Agregar registro
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn"  routerLink="/">
+                            <span>
+                                Home
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="insert_edit">
+    <app-edit-insert-row (saved)="changeState($event)" [values]="data_structure" [table]="table_name"></app-edit-insert-row>
+</div>

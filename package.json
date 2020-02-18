@@ -1,9 +1,9 @@
 {
-  "name": "angular7-electron4-sqlite3-bootstrap4-webpack4",
-  "productName": "Angular7-Electron4-Sqlite3-Bootstrap4-Webpack4+",
+  "name": "agro-free",
+  "productName": "AgroFree",
   "version": "1.0.10",
-  "description": "An Electron application using Angular 7+, Sqlite3, Bootstrap 4+ and WebPack 4+",
-  "author": "pamtbaau",
+  "description": "",
+  "author": "Alexis",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "build": {
     "appId": "com.pamtbaau.angular7-electron-sqlite3-bootstrap4-webpack4",
-    "productName": "Angular7-Electron-Sqlite3-Bootstrap4-Webpack4",
+    "productName": "Registros-App",
     "directories": {
       "output": "build"
     },
@@ -40,15 +40,19 @@
     ]
   },
   "dependencies": {
+    "@angular/animations": "^8.2.12",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "^8.2.2",
     "@angular/compiler": "^8.2.2",
     "@angular/core": "^8.2.2",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "^8.2.2",
     "@angular/platform-browser-dynamic": "^8.2.2",
     "@angular/router": "^8.2.10",
     "bootstrap": "^4.3.1",
     "core-js": "^3.2.1",
     "css-loader": "^3.2.0",
+    "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "rxjs": "^6.5.2",
@@ -90,5 +94,9 @@
     "webpack": "^4.39.2",
     "webpack-command": "^0.4.2",
     "webpack-merge": "^4.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonyzach/usfm-validator.git"
+},
 }

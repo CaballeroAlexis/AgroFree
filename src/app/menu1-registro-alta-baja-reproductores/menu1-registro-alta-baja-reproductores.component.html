@@ -1,0 +1,65 @@
+<div *ngIf="!insert_edit" class="limiter">
+    <div class="container-table100">        
+        <div class="wrap-table100">
+            <div class="table100 ver2 m-b-110">
+                <table data-vertable="ver2">
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="column100 column1" data-column="column1">Fecha de alta</th>
+                            <th class="column100 column2" data-column="column2"> Tipo de reproductor(Macho/Hembra)</th>
+                            <th class="column100 column3" data-column="column3">Código identificatorio</th>
+                            <th class="column100 column4" data-column="column4">Edad de meses en fecha de alta</th>
+                            <th class="column100 column5" data-column="column5">Origen</th>
+                            <th class="column100 column6" data-column="column6">Observación en fecha de alta</th>
+                            <th class="column100 column7" data-column="column7">Fecha de baja</th>
+                            <th class="column100 column8" data-column="column8">Observación en fecha de baja</th>
+                            <th class="column100 column8" data-column="column9">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div></div>
+                        <tr class="row100" *ngFor="let row of data_table">
+                            <td class="column100 column1" data-column="column1">{{row.fecha_alta}}</td>
+                            <td class="column100 column2" data-column="column2">{{row.tipo_reproductor}}</td>
+                            <td class="column100 column3" data-column="column3">{{row.cod_identificatorio}}</td>
+                            <td class="column100 column4" data-column="column4">{{row.edad_meses_fecha_alta}}</td>
+                            <td class="column100 column5" data-column="column5">{{row.origen}}</td>
+                            <td class="column100 column6" data-column="column6">{{row.observacion_fecha_alta}}</td>
+                            <td class="column100 column6" data-column="column6">{{row.fecha_baja}}</td>
+                            <td class="column100 column8" data-column="column8">{{row.observacion_fecha_baja}}</td>
+                            <td class="column100 column9" data-column="column9"> <button (click)="editData(row)">Editar</button> <button (click)="deleteData(row.id)">Eliminar</button></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn" (click)="change_insert_edit()">
+                            <span>
+                                Agregar registro
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn"  routerLink="/">
+                            <span>
+                                Home
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>                              
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="insert_edit">
+    <app-edit-insert-row (saved)="changeState($event)" [values]="data_structure" [table]="table_name"></app-edit-insert-row>
+</div>

@@ -191,7 +191,7 @@ export class TheDb {
 
     public static createDb(dbPath: string): Promise<string> {
         dbPath += path.extname(dbPath) === '.db' ? '' : '.db';
-
+        
         console.log('Creating  databae: ', dbPath);
 
         const dataPath = path.join(Settings.dbFolder, `database.init.json`);
@@ -216,6 +216,7 @@ export class TheDb {
 
     public static openDb(dbPath: string): Promise<void> {
         console.log('Opening database: ', dbPath);
+        
         return TheDb.getDb(dbPath)
             .then(() => TheDb.setPragmaForeignKeys(true))
             .then(TheDb.upgradeDb)
@@ -351,6 +352,18 @@ export class TheDb {
                     reject(err);
                 } else {
                     console.log(`PRAGMA version = ${TheDb.version}`);
+                    resolve();
+                }
+            });
+        });
+    }
+
+    public static insertRow(sql: string) {
+        return new Promise<void>((resolve, reject) => {
+            TheDb.db.exec(sql, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
                     resolve();
                 }
             });

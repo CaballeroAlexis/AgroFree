@@ -34,7 +34,7 @@ describe('Hero', () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 999999;
 
         Settings.initialize();
-        TheDb.openDb(Settings.dbPath)
+        TheDb.openDb("../assets/db/test.db")
             .then(TheDb.resetDbKarma)
             .then(() => {
                 return Hero.get(globals.heroId);

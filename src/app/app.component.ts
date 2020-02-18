@@ -71,6 +71,7 @@ export class AppComponent {
         TheDb.createDb(filename)
             .then((dbPath) => {
                 if (!Settings.hasFixedDbLocation) {
+                    //dbPath="../../assets/db/";
                     Settings.dbPath = dbPath;
                     Settings.write();
                 }
